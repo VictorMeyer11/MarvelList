@@ -1,6 +1,7 @@
 package com.example.marvellist.di
 
 import com.example.marvellist.common.Constants
+import com.example.marvellist.data.MarvelApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,11 +15,11 @@ import javax.inject.Singleton
 object AppModule {
     @Provides
     @Singleton
-    fun providePaprikaApi(): CoinPaprikaApi {
+    fun providePaprikaApi(): MarvelApi {
         return Retrofit.Builder()
             .baseUrl(Constants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(CoinPaprikaApi::class.java)
+            .create(MarvelApi::class.java)
     }
 }
