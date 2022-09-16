@@ -1,6 +1,7 @@
 package com.example.marvellist.domain.use_case.get_character
 
 import com.example.marvellist.common.Resource
+import com.example.marvellist.data.remote.toCharacterDetail
 import com.example.marvellist.domain.model.CharacterDetail
 import com.example.marvellist.domain.repository.MarvelListRepository
 import kotlinx.coroutines.flow.Flow
@@ -15,7 +16,7 @@ class GetCharacter @Inject constructor(
     operator fun invoke(characterId: String): Flow<Resource<CharacterDetail>> = flow {
         try {
             emit(Resource.Loading<CharacterDetail>())
-            val characterDetail = repository.getCharById(characterId)
+            val characterDetail = repository.getCharById(characterId).data.results[0].toCharacterDetail()
         } catch(e: HttpException) {
             emit(Resource.Error<CharacterDetail>(e.localizedMessage ?: "An unexpected error occurred"))
         } catch(e: IOException) {
