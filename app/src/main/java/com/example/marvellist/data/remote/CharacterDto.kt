@@ -1,5 +1,7 @@
 package com.example.marvellist.data.remote
 
+import com.example.marvellist.domain.model.Character
+
 data class CharacterDto(
     val attributionHTML: String,
     val attributionText: String,

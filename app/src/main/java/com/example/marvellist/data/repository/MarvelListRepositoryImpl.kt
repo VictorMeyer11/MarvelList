@@ -2,7 +2,7 @@ package com.example.marvellist.data.repository
 
 import com.example.marvellist.data.MarvelApi
 import com.example.marvellist.data.remote.CharacterDto
-import com.example.marvellist.domain.MarvelListRepository
+import com.example.marvellist.domain.repository.MarvelListRepository
 import javax.inject.Inject
 
 class MarvelListRepositoryImpl @Inject constructor(

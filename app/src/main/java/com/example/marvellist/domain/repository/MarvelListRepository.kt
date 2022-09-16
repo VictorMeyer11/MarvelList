@@ -1,9 +1,9 @@
-package com.example.marvellist.domain
+package com.example.marvellist.domain.repository
 
 import com.example.marvellist.data.remote.CharacterDto
 
 interface MarvelListRepository {
-    suspend fun getCharacters(): List<CharacterDto>
+    suspend fun getCharacters(): CharacterDto
 
     suspend fun getCharById(charId: String): CharacterDto
 }
