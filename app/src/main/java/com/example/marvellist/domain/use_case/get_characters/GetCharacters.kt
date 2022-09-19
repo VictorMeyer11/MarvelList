@@ -22,8 +22,6 @@ class GetCharacters @Inject constructor(
             emit(Resource.Error<List<Character>>(e.localizedMessage ?: "An unexpected error occurred"))
         } catch(e: IOException) {
             emit(Resource.Error<List<Character>>("Couldn't reach server. Check your internet connection"))
-        } catch(e: Exception) {
-            emit(Resource.Error<List<Character>>("Couldn't reach server. Check your internet connection"))
         }
     }
 }

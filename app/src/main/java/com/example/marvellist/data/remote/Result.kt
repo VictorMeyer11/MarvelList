@@ -1,5 +1,6 @@
 package com.example.marvellist.data.remote
 
+import com.example.marvellist.common.Constants
 import com.example.marvellist.domain.model.Character
 
 data class Result(
@@ -18,7 +19,7 @@ data class Result(
 
 fun Result.toCharacter(): Character {
     return Character(
-        imagePath = thumbnail.path,
+        imagePath = "${thumbnail.path}/${Constants.IMAGE_SIZE}.${thumbnail.extension}",
         name = name,
         description = description
     )

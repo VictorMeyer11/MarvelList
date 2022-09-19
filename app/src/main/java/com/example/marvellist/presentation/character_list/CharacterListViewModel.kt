@@ -3,9 +3,11 @@ package com.example.marvellist.presentation.character_list
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.marvellist.common.Resource
 import com.example.marvellist.domain.use_case.get_characters.GetCharacters
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
@@ -34,6 +36,6 @@ class CharacterListViewModel @Inject constructor(
                     _state.value = CharacterListState(isLoading = true)
                 }
             }
-        }
+        }.launchIn(viewModelScope)
     }
 }

@@ -24,7 +24,7 @@ fun CharacterListItem(
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         GlideImage(
-            imageModel = "https://rrtutors.com/uploads/langpostimg/download.jpg",
+            imageModel = character.imagePath,
             modifier = Modifier.size(30.dp)
         )
         Text(

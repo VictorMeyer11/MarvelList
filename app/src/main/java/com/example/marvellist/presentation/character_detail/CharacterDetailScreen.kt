@@ -15,7 +15,7 @@ fun CharacterDetailScreen(character: Character?) {
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
         GlideImage(
-            imageModel = "https://rrtutors.com/uploads/langpostimg/download.jpg",
+            imageModel = character?.imagePath,
             modifier = Modifier.size(30.dp)
         )
         Column(verticalArrangement = Arrangement.SpaceBetween) {
