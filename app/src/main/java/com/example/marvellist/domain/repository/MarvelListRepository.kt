@@ -4,6 +4,4 @@ import com.example.marvellist.data.remote.CharacterDto
 
 interface MarvelListRepository {
     suspend fun getCharacters(): CharacterDto
-
-    suspend fun getCharById(charId: String): CharacterDto
 }

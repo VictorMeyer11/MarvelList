@@ -2,11 +2,15 @@ package com.example.marvellist.presentation.character_list.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role.Companion.Image
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.marvellist.domain.model.Character
+import com.skydoves.landscapist.glide.GlideImage
 
 @Composable
 fun CharacterListItem(
@@ -19,6 +23,14 @@ fun CharacterListItem(
             .padding(20.dp),
         horizontalArrangement = Arrangement.SpaceBetween
     ) {
-
+        GlideImage(
+            imageModel = "https://rrtutors.com/uploads/langpostimg/download.jpg",
+            modifier = Modifier.size(30.dp)
+        )
+        Text(
+            text = character.name,
+            fontWeight = FontWeight.Bold,
+            color = Color.White
+        )
     }
 }

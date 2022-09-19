@@ -11,8 +11,4 @@ class MarvelListRepositoryImpl @Inject constructor(
     override suspend fun getCharacters(): CharacterDto {
         return api.getCharacters()
     }
-
-    override suspend fun getCharById(charId: String): CharacterDto {
-        return api.getCharById(charId)
-    }
 }

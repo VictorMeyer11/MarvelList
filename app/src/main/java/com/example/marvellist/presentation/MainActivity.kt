@@ -13,6 +13,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.marvellist.common.Constants
+import com.example.marvellist.domain.model.Character
 import com.example.marvellist.presentation.character_detail.CharacterDetailScreen
 import com.example.marvellist.presentation.character_list.CharacterListScreen
 import com.example.marvellist.presentation.ui.theme.MarvelListTheme
@@ -40,9 +42,11 @@ class MainActivity : ComponentActivity() {
                             CharacterListScreen(navController)
                         }
                         composable(
-                            route = Screen.CharacterDetailScreen.route + "/{charId}"
+                            route = Screen.CharacterDetailScreen.route
                         ) {
-                            CharacterDetailScreen()
+                            val character =
+                                navController.previousBackStackEntry?.savedStateHandle?.get<Character>(Constants.PARAM_CHARACTER)
+                            CharacterDetailScreen(character)
                         }
                     }
                 }

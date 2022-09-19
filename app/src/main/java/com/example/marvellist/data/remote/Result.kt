@@ -1,7 +1,6 @@
 package com.example.marvellist.data.remote
 
 import com.example.marvellist.domain.model.Character
-import com.example.marvellist.domain.model.CharacterDetail
 
 data class Result(
     val comics: Comics,
@@ -19,13 +18,6 @@ data class Result(
 
 fun Result.toCharacter(): Character {
     return Character(
-        imagePath = thumbnail.path,
-        name = name
-    )
-}
-
-fun Result.toCharacterDetail(): CharacterDetail {
-    return CharacterDetail(
         imagePath = thumbnail.path,
         name = name,
         description = description
