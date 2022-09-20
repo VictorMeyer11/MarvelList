@@ -21,6 +21,7 @@ fun Result.toCharacter(): Character {
     return Character(
         imagePath = "${thumbnail.path.replace("http", "https")}/${Constants.IMAGE_SIZE}.${thumbnail.extension}",
         name = name,
-        description = description
+        description = description,
+        comics = comics.items.map { it.name }
     )
 }

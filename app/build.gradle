@@ -82,4 +82,7 @@ dependencies {
 
     // Glide Image
     implementation "com.github.skydoves:landscapist-glide:2.0.0"
+
+    // Accompanist
+    implementation "com.google.accompanist:accompanist-systemuicontroller:0.26.3-beta"
 }
