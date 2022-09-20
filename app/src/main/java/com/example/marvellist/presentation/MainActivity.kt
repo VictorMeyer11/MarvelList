@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
                 val useDarkIcons = !isSystemInDarkTheme()
 
                 systemUiController.setSystemBarsColor(
-                    color = MaterialTheme.colors.primaryVariant,
+                    color = MaterialTheme.colors.primary,
                     darkIcons = useDarkIcons
                 )
 

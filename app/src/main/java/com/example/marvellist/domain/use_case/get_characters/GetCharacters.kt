@@ -13,10 +13,10 @@ import javax.inject.Inject
 class GetCharacters @Inject constructor(
     private val repository: MarvelListRepository
 ) {
-    operator fun invoke(): Flow<Resource<List<Character>>> = flow {
+    operator fun invoke(offset: Int): Flow<Resource<List<Character>>> = flow {
         try {
             emit(Resource.Loading<List<Character>>())
-            val characters = repository.getCharacters().data.results.map { it.toCharacter() }
+            val characters = repository.getCharacters(offset).data.results.map { it.toCharacter() }
             emit(Resource.Success<List<Character>>(characters))
         } catch(e: HttpException) {
             emit(Resource.Error<List<Character>>(e.localizedMessage ?: "An unexpected error occurred"))

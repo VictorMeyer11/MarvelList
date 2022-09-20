@@ -11,6 +11,7 @@ interface MarvelApi {
         @Query("apikey") apikey: String = Constants.API_KEY,
         @Query("ts") ts: String = Constants.TS,
         @Query("hash") hash: String = Constants.HASH,
-        @Query("limit") limit: Int = Constants.CHAR_LIMIT
+        @Query("limit") limit: Int = Constants.CHAR_LIMIT,
+        @Query("offset") offset: Int = 0
     ): CharacterDto
 }
