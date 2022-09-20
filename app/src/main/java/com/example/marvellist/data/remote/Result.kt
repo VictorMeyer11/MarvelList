@@ -19,7 +19,7 @@ data class Result(
 
 fun Result.toCharacter(): Character {
     return Character(
-        imagePath = "${thumbnail.path}/${Constants.IMAGE_SIZE}.${thumbnail.extension}",
+        imagePath = "${thumbnail.path.replace("http", "https")}/${Constants.IMAGE_SIZE}.${thumbnail.extension}",
         name = name,
         description = description
     )

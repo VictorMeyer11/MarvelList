@@ -13,14 +13,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.example.marvellist.common.Constants
 import com.example.marvellist.presentation.Screen
+import com.example.marvellist.presentation.SharedViewModel
 import com.example.marvellist.presentation.character_list.components.CharacterListItem
-import com.skydoves.landscapist.glide.GlideImage
 
 @Composable
 fun CharacterListScreen(
     navController: NavController,
+    sharedViewModel: SharedViewModel,
     viewModel: CharacterListViewModel = hiltViewModel()
 ) {
     val state = viewModel.state.value
@@ -31,7 +31,7 @@ fun CharacterListScreen(
                 CharacterListItem(
                     character = character,
                     onClick = {
-                        navController.currentBackStackEntry?.savedStateHandle?.set(Constants.PARAM_CHARACTER, character)
+                        sharedViewModel.addCharacter(character)
                         navController.navigate(Screen.CharacterDetailScreen.route)
                     }
                 )

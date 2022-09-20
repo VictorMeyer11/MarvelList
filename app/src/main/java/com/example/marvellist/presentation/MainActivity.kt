@@ -9,12 +9,10 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.marvellist.common.Constants
-import com.example.marvellist.domain.model.Character
 import com.example.marvellist.presentation.character_detail.CharacterDetailScreen
 import com.example.marvellist.presentation.character_list.CharacterListScreen
 import com.example.marvellist.presentation.ui.theme.MarvelListTheme
@@ -31,6 +29,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colors.background
                 ) {
                     val navController = rememberNavController()
+                    val sharedViewModel: SharedViewModel = viewModel()
 
                     NavHost(
                         navController = navController,
@@ -39,14 +38,12 @@ class MainActivity : ComponentActivity() {
                         composable(
                             route = Screen.CharacterListScreen.route
                         ) {
-                            CharacterListScreen(navController)
+                            CharacterListScreen(navController, sharedViewModel)
                         }
                         composable(
                             route = Screen.CharacterDetailScreen.route
                         ) {
-                            val character =
-                                navController.previousBackStackEntry?.savedStateHandle?.get<Character>(Constants.PARAM_CHARACTER)
-                            CharacterDetailScreen(character)
+                            CharacterDetailScreen(sharedViewModel)
                         }
                     }
                 }

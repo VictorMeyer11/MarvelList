@@ -6,8 +6,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.semantics.Role.Companion.Image
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.marvellist.domain.model.Character
 import com.skydoves.landscapist.glide.GlideImage
@@ -25,11 +25,12 @@ fun CharacterListItem(
     ) {
         GlideImage(
             imageModel = character.imagePath,
-            modifier = Modifier.size(30.dp)
+            modifier = Modifier.size(50.dp)
         )
         Text(
             text = character.name,
             fontWeight = FontWeight.Bold,
+            textAlign = TextAlign.Center,
             color = Color.White
         )
     }
