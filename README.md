@@ -1,4 +1,4 @@
-# MarvelList
+# Marvel List
 
 Aplicativo em Kotlin com Jetpack Compose, organizado em MVVM.
 

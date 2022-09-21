@@ -24,7 +24,10 @@ fun CharacterListScreen(
 ) {
     val state = viewModel.state.value
 
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
+    ) {
         Scaffold(
             topBar = {
                 if(viewModel.currentOffset > 0 && !state.isLoading) {
@@ -39,7 +42,8 @@ fun CharacterListScreen(
                         viewModel.getCharacters(CharacterListEvent.IncreaseOffset)
                     }
                 }
-            }
+            },
+            floatingActionButtonPosition = FabPosition.Center
         ) { padding ->
             LazyColumn(modifier = Modifier
                 .fillMaxWidth()
@@ -68,10 +72,9 @@ fun CharacterListScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 20.dp)
-                    .align(Alignment.Center)
             )
         } else if(state.isLoading) {
-            CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+            CircularProgressIndicator()
         }
     }
 }
